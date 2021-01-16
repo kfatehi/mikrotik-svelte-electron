@@ -1,12 +1,11 @@
 <script>
-    import { onMount, onDestroy } from "svelte";
-
     import ConnectForm from "./ConnectForm.svelte";
     import NeighborList from "./NeighborList.svelte";
     import { connectForm } from "./stores";
 
     function handleChooseNeighbor(event) {
         connectForm.set({
+            ...$connectForm,
             ipAddress: event.detail.ipAddress,
         });
     }

@@ -24,7 +24,8 @@
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0",
-    "node-mndp": "git+https://github.com/kfatehi/node-mndp.git"
+    "node-mndp": "git+https://github.com/kfatehi/node-mndp.git",
+    "routeros-client": "^1.1.1"
   },
   "config": {
     "forge": {

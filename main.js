@@ -15,6 +15,7 @@ function createWindow () {
   win.loadFile('my-svelte-project/public/index.html')
 
   mikrotik.mndp(win);
+  mikrotik.client(win);
 }
 
 app.whenReady().then(createWindow)
