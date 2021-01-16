@@ -21,7 +21,8 @@
     "electron": "^11.2.0"
   },
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.0"
+    "electron-squirrel-startup": "^1.0.0",
+    "node-mndp": "git+https://github.com/kfatehi/node-mndp.git"
   },
   "config": {
     "forge": {
