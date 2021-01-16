@@ -1,5 +1,3 @@
-const { deepStrictEqual } = require('assert')
-const console = require('console')
 const { app, BrowserWindow } = require('electron')
 const mikrotik = require('./mikrotik');
 

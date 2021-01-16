@@ -1,7 +1,18 @@
 <script>
-import NeighborList from "./NeighborList.svelte";
+    import { onMount, onDestroy } from "svelte";
+
+    import ConnectForm from "./ConnectForm.svelte";
+    import NeighborList from "./NeighborList.svelte";
+    import { connectForm } from "./stores";
+
+    function handleChooseNeighbor(event) {
+        connectForm.set({
+            ipAddress: event.detail.ipAddress,
+        });
+    }
 
 </script>
 
-<p>Ayy</p>
-<NeighborList />
+<ConnectForm />
+<hr />
+<NeighborList on:choose={handleChooseNeighbor} />

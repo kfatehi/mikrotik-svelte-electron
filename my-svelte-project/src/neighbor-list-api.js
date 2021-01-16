@@ -8,8 +8,11 @@ export function start() {
         if (device.macAddress.length == "")
             return;
 
-        // remove duplicate so we can add it
+        // prevent dupe by getting current list without the one we just learned of
         let items = get(neighbors).filter((n)=> n.macAddress != device.macAddress);
+
+        // convert the uptime from seconds to that which winbox shows
+        device.uptime = new Date(device.uptime * 1000).toISOString().substring(11, 19);
 
         neighbors.set([...items, device]);
     })			
