@@ -1,6 +1,7 @@
 const { deepStrictEqual } = require('assert')
 const console = require('console')
 const { app, BrowserWindow } = require('electron')
+const mikrotik = require('./mikrotik');
 
 function createWindow () {
   const win = new BrowserWindow({
@@ -12,7 +13,10 @@ function createWindow () {
     }
   })
 
-  win.loadFile('index.html')
+  // win.loadFile('index.html')
+  win.loadFile('my-svelte-project/public/index.html')
+
+  mikrotik.mndp(win);
 }
 
 app.whenReady().then(createWindow)
@@ -27,29 +31,4 @@ app.on('activate', () => {
   if (BrowserWindow.getAllWindows().length === 0) {
     createWindow()
   }
-})
-
-
-const { ipcMain } = require('electron');
-
-
-const mndp = require('node-mndp');
-let discovery = new mndp.NodeMndp({
-  port: 5678
-});
-
-discovery.on('deviceFound', (device) => {
-	console.info('Got discovery packet: ', device);
-	//nodes[device.macAddress] = { ...device, time: Date.now() };
-})
-
-discovery.start();
-
-
-
-
-ipcMain.handle('perform-action', (event, ...args)=>{
-  console.log('sending refresh');
-  
-  discovery.refresh();
 })
