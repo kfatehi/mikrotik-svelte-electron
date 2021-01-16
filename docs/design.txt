@@ -1,0 +1,7 @@
+homescreen
+- list of apps
+- winbox
+
+winbox
+- discovery
+challenge, can we do discovery now?

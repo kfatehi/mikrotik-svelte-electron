@@ -1,0 +1,43 @@
+electron
+svelte
+routeros-client
+https://github.com/pjediny/mndp
+
+
+ui
+---
+what ui toolkit to use to go along with svelte?
+chakra looks good but it's a react-specific thing
+storybook ?
+
+maybe
+---
+libjitsimeet
+libmatrixclient
+
+
+reading list-
+---
+https://www.mikenikles.com/blog/why-i-moved-from-react-to-svelte-and-why-others-will-follow
+
+https://storybook.js.org/docs/svelte/get-started/install
+
+https://github.com/aluisiora/routeros-client/wiki
+
+https://www.learnstorybook.com/intro-to-storybook/react/en/get-started/
+
+https://www.componentdriven.org/
+
+https://tailwindui.com/components/application-ui/lists/tables
+
+https://www.snowpack.dev/posts/2021-01-13-snowpack-3-0
+
+https://tailwindui.com/components/application-ui/lists/tables
+
+https://nativescript.org/blog/quick-intro-to-using-svelte-to-create-a-native-mobile-app/
+
+
+https://github.com/patagonaa/prometheus-mndp-autodiscovery/blob/master/src/index.js
+
+https://github.com/pheinrichs/node-mndp#readme
+
