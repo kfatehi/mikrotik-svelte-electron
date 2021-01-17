@@ -51,3 +51,7 @@ avidya - ignorance
 niyama - observance
 
 The word ‘Niyama’ often translates as ‘positive duties’ or ‘observances’, and are thought of as recommended habits for healthy living and ‘spiritual existence’. They’re traditionally thought of as practices concerned with ourselves, although of course we can think of them as affecting the outside world too.
+
+
+
+https://stackoverflow.com/questions/65484019/how-can-i-manually-compile-a-svelte-component-down-to-the-final-javascript-and-c
