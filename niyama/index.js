@@ -20,7 +20,7 @@ module.exports = function(win) {
         win.webContents.send('niyama:report-main-state', {
             connectForm: userSettings.get('connectForm', {ipAddress:'',login:'',password:''}),
             savedTargets: userSettings.get('savedTargets', []), // TODO
-            connected: client && client != null,
+            connected: client.connected
         });
 
     });

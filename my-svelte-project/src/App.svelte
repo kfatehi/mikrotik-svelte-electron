@@ -32,6 +32,4 @@
         <hr />
         <NeighborList on:choose={handleChooseNeighbor} />
     {/if}
-{:else}
-    Loading...
 {/if}

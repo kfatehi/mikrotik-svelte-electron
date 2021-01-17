@@ -4,6 +4,8 @@ const RouterOSClient = require('routeros-client').RouterOSClient;
 module.exports = function(win) {
     let api = null;
  
+    let state = { connected: false }
+
     ipcMain.handle('routerosclient:connect', (event, {ipAddress, login, password})=>{
 
         api = new RouterOSClient({
@@ -15,6 +17,7 @@ module.exports = function(win) {
          
         api.connect().then((client) => {
             // After connecting, the promise will return a client class so you can start using it
+            state.connected = true;
 
             win.webContents.send('routerosclient:connected');
 
@@ -29,8 +32,9 @@ module.exports = function(win) {
          
         }).catch((err) => {
             win.webContents.send('routerosclient:connectError', err.message);
+            state.connected = false;
         });
     });
 
-    return api;
+    return state;
 }
