@@ -17,9 +17,6 @@
     }
 
     onMount(() => {
-        // am i connected already?
-        // what are my saved/managed connection profiles?
-
         fetchMainState();
     });
 </script>

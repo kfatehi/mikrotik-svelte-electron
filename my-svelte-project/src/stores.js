@@ -15,3 +15,5 @@ export const mainProcessStateLoaded = writable(false);
 export const connected = writable(false);
 
 export const savedTargets = writable([]);
+
+export const addresses = writable([]);

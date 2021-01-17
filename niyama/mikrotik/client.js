@@ -1,23 +1,34 @@
 const { ipcMain } = require('electron')
 const RouterOSClient = require('routeros-client').RouterOSClient;
 
-module.exports = function(win) {
+module.exports = function (win) {
     let api = null;
- 
+
     let state = { connected: false }
 
-    ipcMain.handle('routerosclient:connect', (event, {ipAddress, login, password})=>{
+    ipcMain.handle('routerosclient:connect', (event, { ipAddress, login, password }) => {
 
+        client = null;
         api = new RouterOSClient({
             host: ipAddress,
             user: login,
             password,
             keepalive: true
         });
-         
-        api.connect().then((client) => {
+
+        function runtimeError(err) {
+            win.webContents.send('routerosclient:connectError', err.message);
+            state.connected = false;
+            api = null;
+        }
+
+        api.connect().then((_client) => {
             // After connecting, the promise will return a client class so you can start using it
             state.connected = true;
+            
+            client = _client;
+
+            api.on('error', runtimeError);
 
             win.webContents.send('routerosclient:connected');
 
@@ -29,11 +40,15 @@ module.exports = function(win) {
             // }).catch((err) => {
             //     console.log('err?', err); // Some error trying to get the identity
             // });
-         
-        }).catch((err) => {
-            win.webContents.send('routerosclient:connectError', err.message);
-            state.connected = false;
+
+        }).catch(runtimeError);
+    });
+
+    ipcMain.handle('routerosclient:get-addresses', (event) => {
+        client.menu("/ip address").getAll().then((result) => {
+            win.webContents.send('routerosclient:set-addresses', result);    
         });
+
     });
 
     return state;
