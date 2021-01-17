@@ -1,5 +1,5 @@
 const { app, BrowserWindow } = require('electron')
-const mikrotik = require('./mikrotik');
+const niyama = require('./niyama');
 
 function createWindow () {
   const win = new BrowserWindow({
@@ -11,11 +11,10 @@ function createWindow () {
     }
   })
 
+  niyama(win);
+
   // win.loadFile('index.html')
   win.loadFile('my-svelte-project/public/index.html')
-
-  mikrotik.mndp(win);
-  mikrotik.client(win);
 }
 
 app.whenReady().then(createWindow)

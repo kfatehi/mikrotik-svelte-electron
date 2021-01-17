@@ -25,6 +25,5 @@ export function refresh() {
 }
 
 export function stop() {
-    ipcRenderer.off('mndp:deviceFound');
     ipcRenderer.invoke('mndp:stop');
 }   

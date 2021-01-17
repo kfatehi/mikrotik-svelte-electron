@@ -1,4 +1,3 @@
-import { write } from 'fs';
 import { writable } from 'svelte/store';
 
 export const neighbors = writable([]);
@@ -10,3 +9,9 @@ export const connectForm = writable({
 });
 
 export const errorMessage = writable('');
+
+export const mainProcessStateLoaded = writable(false);
+
+export const connected = writable(false);
+
+export const savedTargets = writable([]);
